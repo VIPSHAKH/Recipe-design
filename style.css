@@ -1,0 +1,371 @@
+/* author: https://codepen.io/BlackStar1991/pen/poBgypW
+Andry Zirka
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  color: #000;
+  max-width: 100vw;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-display: swap;
+}
+
+button {
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+}
+
+.btn_menu {
+  position: fixed;
+  top: 5dvh;
+  left: 10dvh;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  transition: 0.8s ease-in;
+}
+
+.btn_animation {
+  position: fixed;
+  top: 50%;
+  right: 2.2dvh;
+  transform: translateY(-50%);
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+  transition: 0.2s ease-in;
+}
+.btn_animation:hover, .btn_animation:focus {
+  filter: brightness(1.2);
+}
+
+.btn_animation svg {
+  transition: 0.8s ease-in;
+  transform: rotate(0);
+}
+
+.btn_animation__checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.header_wrapper {
+  position: relative;
+  margin-left: 38dvh;
+  top: 10dvh;
+  transition: 0.8s ease-in;
+}
+
+.header_title {
+  position: relative;
+  font-family: "Courgette", cursive;
+  font-size: 90px;
+  line-height: 80px;
+  margin: 0;
+  color: #2F3138;
+  max-width: 270px;
+  background-color: #fff;
+  z-index: 10;
+}
+@media screen and (max-height: 470px) {
+  .header_title {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+.header_subtitle {
+  position: relative;
+  font-family: "Courgette", cursive;
+  font-size: 32px;
+  margin-top: 2vh;
+  color: #A6A6AE;
+  display: inline;
+  background-color: #fff;
+  z-index: 10;
+}
+@media screen and (max-height: 470px) {
+  .header_subtitle {
+    font-size: 24px;
+  }
+}
+
+.main {
+  position: relative;
+  height: 100dvh;
+  margin: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.main_section {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  min-width: calc(100vw - 10%);
+  margin: 0 5%;
+  height: 100%;
+  transition: 0.8s ease-in;
+  transform: translateX(0);
+}
+
+.header_wrapper {
+  height: 50%;
+}
+
+.main_image {
+  position: fixed;
+  top: -15%;
+  right: 3%;
+  max-height: 80dvh;
+  object-fit: contain;
+  transition: 0.8s ease-in;
+  transform: translate(0%, 0%) rotate(0deg);
+}
+
+.recipe_footer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40%;
+  padding-bottom: 10dvh;
+}
+
+.subtitle {
+  color: #2F3138;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.recipe_controls {
+  transition: 0.8s ease-in;
+  width: 38dvh;
+}
+
+.animation_hide {
+  transition: 0.8s ease-in;
+  opacity: 0;
+}
+
+.recipe_list {
+  margin-top: 10px;
+}
+
+.recipe_controls dd {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.recipe_controls dd span {
+  margin-left: 10px;
+}
+
+.recipe_ingredients {
+  margin-right: auto;
+  transition: 0.8s ease-in;
+  height: calc(100% + 10dvh);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.recipe_list {
+  padding-left: 18px;
+}
+
+.recipe_list li:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-end;
+  transition: 0.8s ease-in;
+  transform-origin: 100% 50%;
+  transform: rotate(0);
+}
+
+.ingredients_item {
+  position: relative;
+  transition: 0.8s ease-in;
+  margin: 0 2vw;
+  z-index: 2;
+}
+
+.ingredients_item img {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 10px;
+  object-fit: cover;
+  box-shadow: 5px 17px 16px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.8s ease-in;
+  z-index: 2;
+}
+
+.ingredients_item figcaption {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.8s ease-in;
+}
+
+.main_video {
+  display: inline-block;
+  background-color: #2F3138;
+  color: #fff;
+  width: 100vw;
+}
+
+.steps_list {
+  position: absolute;
+  left: 17vw;
+  bottom: 20px;
+  width: 30vw;
+  height: 58dvh;
+  overflow-y: auto;
+  padding-left: 0;
+  padding-right: 5px;
+  margin: 0;
+  z-index: -1;
+  opacity: 0;
+}
+.steps_list li:not(:first-child) {
+  margin-top: 8dvh;
+}
+.steps_list b {
+  display: block;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 15px 0;
+  color: #000;
+  font-weight: bold;
+  mix-blend-mode: multiply;
+}
+.steps_list p {
+  color: #9b9ca2;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.video_box {
+  position: absolute;
+  right: -30vw;
+  top: 0;
+  width: 30vw;
+  height: 100%;
+  z-index: 2;
+  will-change: transform;
+  transform: translateX(0);
+}
+.video_box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  background-color: #2F3138;
+  will-change: transform;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.video_box__wrap {
+  height: 100%;
+}
+
+.video_box video {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: inherit;
+  object-fit: cover;
+}
+
+.recipe_ingredients::-webkit-scrollbar,
+.steps_list::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(26, 24, 47, 0.15);
+  border-radius: 5px;
+  height: 200px;
+}
+.recipe_ingredients::-webkit-scrollbar-thumb,
+.steps_list::-webkit-scrollbar-thumb {
+  background: #53545B;
+  border-radius: 5px;
+}
+
+.btn_animation__checkbox:checked + .btn_animation svg {
+  transition: 0.8s ease-in;
+  transform: rotate(180deg);
+}
+
+.btn_animation__checkbox:checked ~ .btn_menu {
+  filter: invert(1);
+  transition: 0.8s ease-in;
+}
+
+.btn_animation__checkbox:checked ~ .main .steps_list {
+  opacity: 1;
+  transition: 0.3s ease-in 0.8s;
+  z-index: 4;
+}
+.btn_animation__checkbox:checked ~ .main .steps_list b {
+  transition: 0.8s ease-in 1.6s;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+.btn_animation__checkbox:checked ~ .main .ingredients {
+  position: relative;
+  transition: 0.8s ease-in;
+  transform: translate(-25%, 75%) rotate(90deg);
+  z-index: 5;
+}
+.btn_animation__checkbox:checked ~ .main .ingredients .ingredients_item {
+  margin: 0.8dvh 0.3dvh;
+}
+.btn_animation__checkbox:checked ~ .main .ingredients img {
+  transform: rotate(-90deg);
+}
+.btn_animation__checkbox:checked ~ .main .ingredients figcaption {
+  transform: translate(-2%, -1040%) rotate(-90deg);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+.btn_animation__checkbox:checked ~ .main .main_image {
+  transform: translate(calc(-120% + 90vw), -30%) rotate(90deg);
+}
+.btn_animation__checkbox:checked ~ .main .main_section {
+  transition: 0.8s ease-in;
+  transform: translateX(-90%);
+}
+.btn_animation__checkbox:checked ~ .main .video_box {
+  transition: 0.8s ease-in;
+  transform: translateX(-170%);
+}
+.btn_animation__checkbox:checked ~ .main .video_box:before {
+  transition: 0.8s ease-in 1.6s;
+  transform: translateX(-100vw);
+}
